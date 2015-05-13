@@ -1,0 +1,246 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Copyright (C) 2011 Michael Corral.
+%
+% Permission is granted to copy, distribute and/or modify this document
+% under the terms of the GNU Free Documentation License,
+% Version 1.3 or any later version published by the Free Software Foundation;
+% with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+% A copy of the license is included in the file gnufdl.txt, and is also
+% available at http://www.gnu.org/licenses/fdl-1.3.html.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,12pt]{article}
+\usepackage{vntex}
+\usepackage[hmargin=0.5in,vmargin=0.5in,letterpaper,includefoot]{geometry}
+\usepackage{xcolor,graphicx}
+\usepackage{mathtools}
+\usepackage{fancybox,fancyvrb}
+\usepackage{textcomp}
+\usepackage[unicode]{hyperref}
+\hypersetup{pdftitle={LaTeX Cheatsheet},
+            pdfsubject={LaTeX},
+            pdfauthor={Trần Đình Anh Tuấn},
+            pdfkeywords={cheatsheet},
+            pdfdisplaydoctitle=true,pdfborder={0 0 0},
+            colorlinks=true,urlcolor=blue}
+%\usepackage{breakurl}
+\usepackage{xspace}
+\newcommand{\latex}{\LaTeX\xspace}
+\begin{document}
+\begin{center}
+ \Large\textbf{\latex Cheatsheet}
+\end{center}
+Đây là một tài liệu dùng để tra cứu nhanh các lệnh thường dùng trong \latex
+
+\section*{Cấu trúc tài liệu}
+Cấu trúc cơ bản thường dùng trong mọi tài liệu \latex. Trong phần này bao gồm
+một số lệnh dùng với tiếng Việt.
+
+\begin{Verbatim}[frame=single]
+%%% Phần khai báo (Preamble)
+%%%
+
+%sử dụng lớp tài liệu article với kiểu giấy A4, cỡ chữ 12pt
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{vntex} %sử dụng gói vntex để soạn thảo tiếng Việt
+\usepackage{amsmath,amssymb} %gõ kí hiệu, công thức Toán của AMS
+\usepackage{xcolor,graphicx} %màu sắc, hình ảnh
+
+%Tiêu chuẩn văn bản Việt Nam, tùy ý khai báo:
+\usepackage[top=2cm,bottom=2cm,left=3cm,right=2cm]{geometry} %cỡ tài liệu
+\usepackage{times} %font chữ kiểu Times New Roman
+\usepackage{indentfirst} %thụt đầu dòng đoạn văn
+\renewcommand{\baselinestretch}{1.7} %dãn cách dòng 1.5 như M$Word
+
+%%% Phần nội dung
+%%%
+\begin{document}
+
+\title{Tiêu đề}
+\author{Tác giả}
+\date{\today}
+\maketitle
+
+\section{Tiết đoạn đánh số}
+\subsection{Tiết đoạn con}
+\section*{Tiết đoạn không đánh số}
+
+\end{document}
+\end{Verbatim}
+
+\section*{Định dạng kiểu chữ}
+
+\begin{center}
+ \begin{tabular}{|l|l|l|@{}}
+\hline
+\textbf{Kiểu chữ} & \textbf{Lệnh} & \textbf{Hiển thị}\\
+\hline
+Đậm & \texttt{\textbackslash textbf$\lbrace$chữ đậm$\rbrace$} & \textbf{chữ đậm}\\
+Nghiêng & \texttt{\textbackslash emph$\lbrace$chữ nghiêng$\rbrace$} & \emph{chữ
+nghiêng}\\
+Đậm nghiêng & \texttt{\textbackslash textbf$\lbrace$\textbackslash
+emph$\lbrace$chữ đậm nghiêng$\rbrace\rbrace$} & \textbf{\emph{chữ đậm nghiêng}}\\
+Gạch dưới & \texttt{\textbackslash underline$\lbrace$chữ gạch dưới$\rbrace$} &
+\underline{chữ gạch dưới}\\
+In hoa & \texttt{\textbackslash textsc$\lbrace$chữ in hoa$\rbrace$} &
+\textsc{chữ in hoa}\\
+Giãn cách đơn (monospaced) & \texttt{\textbackslash texttt$\lbrace$chữ giãn cách
+đơn$\rbrace$} & \texttt{chữ giãn cách đơn}\\
+Chữ không chân (sans serif) & \texttt{\textbackslash textsf$\lbrace$chữ không
+chân$\rbrace$} & \textsf{chữ không chân}\\
+Kiểu số mũ & \texttt{chữ\textbackslash textsuperscript$\lbrace$số mũ$\rbrace$}
+& chữ\textsuperscript{số mũ}\\
+Cỡ tiny & \texttt{\textbackslash tiny$\lbrace$cỡ tiny$\rbrace$} & \tiny{cỡ tiny}\\
+Cỡ superscript & \texttt{\textbackslash scriptsize$\lbrace$cỡ
+superscript$\rbrace$} & \scriptsize{cỡ superscript}\\
+Cỡ footnote & \texttt{\textbackslash footnotesize$\lbrace$cỡ footnote$\rbrace$}
+& \footnotesize{cỡ footnote}\\
+Cỡ small & \texttt{\textbackslash small$\lbrace$cỡ small$\rbrace$} & \small{cỡ small}\\
+Cỡ normal & \texttt{\textbackslash normalsize$\lbrace$cỡ normal$\rbrace$} &
+\normalsize{cỡ normal}\\
+Cỡ large & \texttt{\textbackslash large$\lbrace$cỡ large$\rbrace$} & \large{cỡ large}\\
+Cỡ larger & \texttt{\textbackslash Large$\lbrace$cỡ larger$\rbrace$} &
+\Large{cỡ larger}\\
+Cỡ largest & \texttt{\textbackslash LARGE$\lbrace$cỡ largest$\rbrace$} &
+\LARGE{cỡ largest}\\
+Cỡ huge & \texttt{\textbackslash huge$\lbrace$cỡ huge$\rbrace$} & \huge{cỡ huge}\\
+Cỡ hugest & \texttt{\textbackslash Huge$\lbrace$cỡ hugest$\rbrace$} & \Huge{cỡ hugest}\\
+Màu xanh\footnotemark & \texttt{\textbackslash
+textcolor$\lbrace$blue$\rbrace\lbrace$màu xanh$\rbrace$} & \textcolor{blue}{màu
+xanh}\\
+\hline
+\end{tabular}
+\end{center}\footnotetext{Để sử dụng màu sắc phải nạp gói \texttt{xcolor} trong
+phần khai báo}
+
+\section*{Danh sách}
+
+\begin{description}
+    \item [môi trường \texttt{enumerate}] để tạo bảng danh sách đánh số kiểu
+        Arabic.
+    \item [môi trường \texttt{itemize}] để tạo danh sách kiểu chấm điểm.
+    \item [môi trường \texttt{description}] để tạo danh sách mô tả.
+\end{description}
+
+\vspace{4mm}
+\begin{minipage}[c]{3.5in}
+\begin{Verbatim}[frame=single]
+\begin{enumerate}
+ \item Đánh số kiểu Arabic thứ nhất
+  \begin{itemize}
+   \item Đây là mục chấm điểm.
+   \item Đây là mục chấm điểm
+  \end{itemize}
+ \item Đây là mục đánh số thứ hai.
+\end{enumerate}
+\end{Verbatim}
+\end{minipage}
+\begin{minipage}[c]{3.5in}
+\begin{center}
+\shadowbox{\parbox{3in}{%
+\begin{enumerate}
+ \item Đánh số kiểu Arabic thứ nhất
+  \begin{itemize}
+   \item Đây là mục chấm điểm.
+   \item Đây là mục chấm điểm
+  \end{itemize}
+ \item Đây là mục đánh số thứ hai.
+\end{enumerate}
+}}
+\end{center}
+\end{minipage}\vspace{4mm}
+
+\section*{Bảng}
+
+Môi trường \texttt{tabular} dùng để tạo bảng, định dạng như sau:
+
+\begin{Verbatim}[frame=single]
+\begin{tabular}{kiểu gióng hàng(c,l hoặc r); mỗi chữ đại diện một cột}
+    cột 1 hàng 1 & cột 2 hàng 1 & cột 3 hàng 1\\
+    cột 1 hàng 2 & cột 2 hàng 2 & cột 3 hàng 3\\
+\end{tabular}
+\end{Verbatim}
+
+Bên dưới là một ví dụ về bảng có ba cột hai hàng; cột thứ nhất gióng hàng giữa
+\texttt{c}, cột thứ hai gióng hàng trái \texttt{l} và cột thứ ba gióng hàng
+phải \texttt{r}; mỗi cột trong hàng phân cách nhau bằng kí tự \&, mỗi hàng phân
+cách bằng hai dấu \textbackslash\textbackslash:
+
+\vspace{4mm}
+\begin{minipage}[c]{3.5in}
+\begin{Verbatim}[frame=single]
+\begin{tabular}{clr}
+ Cột 1 & Cột 2 & Cột 3\\
+ Đây & là & hàng\\
+\end{tabular}
+\end{Verbatim}
+\end{minipage}
+\begin{minipage}[c]{3.5in}
+\begin{center}
+\shadowbox{\parbox{3in}{%
+\begin{tabular}{clr}
+ Cột 1 & Cột 2 & Cột 3\\
+ Đây & là & hàng\\
+\end{tabular}
+}}
+\end{center}
+\end{minipage}\vspace{4mm}
+
+\noindent \textbf{Ghi chú}: Mặc định, \latex sẽ không kẻ hàng ngăn cách các cột
+và hàng. Để kẻ hàng ngăn cách cột, ta thêm kí tự \texttt{|} vào phần gióng hàng
+các cột như thế này \verb+\begin{tabular}{|c|l|r|}+. Để kẻ hàng ngăn cách hàng,
+ta thêm \texttt{\textbackslash hline} vào giữa các hàng.
+
+\section*{Đóng khung chữ, đoạn văn}
+
+\begin{flushleft}
+\begin{minipage}[c]{3.5in}
+\begin{Verbatim}[frame=single]
+Đóng khung \fbox{chữ} rất dễ.
+
+\fbox{\parbox{\textwidth}{Đóng khung
+đoạn văn cũng không khó. Đoạn văn được
+đóng khung thể hiện tầm quan trọng.}}
+\end{Verbatim}
+\end{minipage}\quad
+\begin{minipage}[c]{3.5in}
+\begin{center}
+\shadowbox{\parbox{3.65in}{%
+Đóng khung \fbox{chữ} rất dễ.
+
+\fbox{\parbox{\textwidth}{Đóng khung
+đoạn văn cũng không khó. Đoạn văn được
+đóng khung thể hiện tầm quan trọng.}}
+}}
+\end{center}
+\end{minipage}
+\end{flushleft}
+
+\section*{Hình ảnh}
+
+Chèn hình ảnh vào văn bản:
+\begin{verbatim}
+\includegraphics[thuộctính1=...,thuộctính2=...]{tên_tệp_ảnh}
+\end{verbatim}
+
+\begin{center}
+\begin{tabular}{|l|l|}
+    \hline
+    \textbf{Thuộc tính = Giá trị} & \textbf{Chú thích}\\
+    \hline
+    width=xx & Chiều rộng ảnh = xx \emph{pt, mm, in}\\
+    \hline
+    height=xx & Chiều cao ảnh = xx \emph{pt, mm, in}\\
+    \hline
+    keepaspectratio=true|false & giữ nguyên tỉ lệ ảnh \emph{true} hoặc
+    \emph{false}\\
+    \hline
+    scale=xx & phóng to, thu nhỏ tỉ lệ xx\\
+    \hline
+    angle=xx & xoay ảnh góc \emph{xx} độ\\
+    \hline
+\end{tabular}
+\end{center}
+
+
+\end{document}
